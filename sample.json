@@ -6,5 +6,14 @@
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
     "ami_name": "packer-example {{timestamp}}"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sleep 30",
+      "sudo yum  update -y",
+      "sudo yum  install -y httpd",
+      "sudo service httpd start"
+    ]
   }]
 }
